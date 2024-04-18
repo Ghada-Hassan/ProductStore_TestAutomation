@@ -9,7 +9,7 @@ import pages.ProductDescription;
 
 public class ProductTest extends Base  {
     @Test
-    public void testGetAddToCartSuccessfully() {
+    public void checkAddToCartSuccessfully() {
         ProductDescription productDescriptionPage;
         By choosenProduct= By.xpath("//a[text()='Samsung galaxy s6']");
         productDescriptionPage=homePage.chooseItem(choosenProduct);
@@ -19,6 +19,7 @@ public class ProductTest extends Base  {
         productDescriptionPage.getAddToCart();
         Assert.assertEquals(productDescriptionPage.checkAlertTxt(),"Product added");
         productDescriptionPage.acceptAlert();
+        homePage.navigateToHomePage();
     }
    /* @Test
     public void testIncorrectProductDetails() {
@@ -42,5 +43,6 @@ public class ProductTest extends Base  {
        cart.clickDeleteProduct();
        Thread.sleep(2000);
        Assert.assertFalse(cart.getProductName().contains("Samsung galaxy s6"),"the product not deleted");
+       homePage.navigateToHomePage();
    }
 }

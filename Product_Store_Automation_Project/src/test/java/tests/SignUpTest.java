@@ -19,6 +19,8 @@ public class SignUpTest extends Base {
         Thread.sleep(2000);
         Assert.assertEquals(signUpPage.checkAlertTxt(), "Sign up successful.");
         signUpPage.acceptAlert();
+        Thread.sleep(2000);
+        signUpPage.clickCloseButton();
     }
 
     @Test

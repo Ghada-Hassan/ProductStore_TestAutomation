@@ -57,5 +57,8 @@ public ProductDescription chooseItem(By choosenProduct) {
         driver.findElement(signUpTxt).click();
         return new SignUp(driver);
     }
+    public void navigateToHomePage() {
+        driver.get("https://www.demoblaze.com/");
+    }
 }
 
