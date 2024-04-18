@@ -17,6 +17,13 @@ public class HomePage {
     By loginTxt = By.id("login2");
     By signUpTxt = By.id("signin2");
     By aboutUs= By.xpath("//a[text()='About us']");
+    By phoneCat = By.linkText("Phones");
+    By laptopsCat = By.linkText("Laptops");
+    By monitorCat = By.linkText("Monitors");
+    By phonename = By.linkText("Samsung galaxy s6");
+    By laptopName = By.linkText("Sony vaio i5");
+    By monitorName = By.linkText("Apple monitor 24");
+
 
 
 
@@ -46,7 +53,9 @@ public ProductDescription chooseItem(By choosenProduct) {
     }
 
     public Login clickLogin(){
-        driver.findElement(loginTxt).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100)); // Wait for up to 10 seconds
+        WebElement loginElement = wait.until(ExpectedConditions.elementToBeClickable(loginTxt));
+        loginElement.click();
         return new Login(driver);
     }
     public AboutUs clickAboutUS(){
@@ -57,5 +66,42 @@ public ProductDescription chooseItem(By choosenProduct) {
         driver.findElement(signUpTxt).click();
         return new SignUp(driver);
     }
+    public void clickPhones(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement phoneCategoryElement = wait.until(ExpectedConditions.elementToBeClickable(phoneCat));
+        phoneCategoryElement.click();
+    }
+    public void clickLaptops(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement lapTopCategoryElement = wait.until(ExpectedConditions.elementToBeClickable(laptopsCat));
+        lapTopCategoryElement.click();
+    }
+    public void clickMonitors(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebElement monitorCategoryElement = wait.until(ExpectedConditions.elementToBeClickable(monitorCat));
+        monitorCategoryElement.click();
+    }
+
+    public String checkPhonesAppears(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement phoneElement = wait.until(ExpectedConditions.visibilityOfElementLocated(phonename));
+        return phoneElement.getText();
+    }
+
+    public String checkLaptopsAppears(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement lapElement = wait.until(ExpectedConditions.visibilityOfElementLocated(laptopName));
+        return lapElement.getText();
+    }
+    public String checkMonitorsAppears(){
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement monitorElement = wait.until(ExpectedConditions.visibilityOfElementLocated(monitorName));
+        return monitorElement.getText();
+
+
+    }
 }
+
+
 

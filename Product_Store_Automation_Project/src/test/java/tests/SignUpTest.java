@@ -8,7 +8,7 @@ import pages.SignUp;
 public class SignUpTest extends Base {
 
     @Test
-    public void testsignUpSuccessfully() throws InterruptedException {
+    public void testSignUpSuccessfully() throws InterruptedException {
         SignUp signUpPage = homePage.clickSignUp();
         int rand=(int)(Math.random()*50);
         String username = "saharrhamdy"+rand;
@@ -23,7 +23,10 @@ public class SignUpTest extends Base {
 
     @Test
     public void testUserNameAleardyExists() throws InterruptedException {
+
         SignUp signUpPage = homePage.clickSignUp();
+        signUpPage.clearUserName();
+        signUpPage.clearPassword();
         String username = "saharrhamdy";
         String password = "Sahar2";
         signUpPage.fillUsernameSignUp(username);
@@ -39,6 +42,8 @@ public class SignUpTest extends Base {
     @Test
     public void testUserNameNotEmpty() throws InterruptedException {
         SignUp signUpPage = homePage.clickSignUp();
+        signUpPage.clearUserName();
+        signUpPage.clearPassword();
         String username = "";
         String password = "Sahar2";
         signUpPage.fillUsernameSignUp(username);
@@ -54,6 +59,8 @@ public class SignUpTest extends Base {
     @Test
     public void testPasswordNotEmpty() throws InterruptedException {
         SignUp signUpPage = homePage.clickSignUp();
+        signUpPage.clearUserName();
+        signUpPage.clearPassword();
         String username = "sahar";
         String password = "";
         signUpPage.fillUsernameSignUp(username);
@@ -68,6 +75,8 @@ public class SignUpTest extends Base {
     @Test
     public void testInputdNotEmpty() throws InterruptedException {
         SignUp signUpPage = homePage.clickSignUp();
+        signUpPage.clearUserName();
+        signUpPage.clearPassword();
         String username = "";
         String password = "";
         signUpPage.fillUsernameSignUp(username);

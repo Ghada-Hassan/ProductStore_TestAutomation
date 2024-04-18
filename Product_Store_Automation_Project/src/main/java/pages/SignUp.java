@@ -53,5 +53,13 @@ public class SignUp {
 
         driver.switchTo().alert().accept();
     }
+    public void clearUserName(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+        WebElement usernameElement = wait.until(ExpectedConditions.visibilityOfElementLocated(usernameSignUp));
+        usernameElement.clear();    }
+    public void clearPassword(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+        WebElement passElement = wait.until(ExpectedConditions.visibilityOfElementLocated(passwordSignUp));
+        passElement.clear();    }
 
 }

@@ -16,7 +16,7 @@ import pages.ProductDescription;
     private String URL = "https://www.demoblaze.com/";
     public HomePage homePage;
 
-    @BeforeTest
+    @BeforeClass
     public void setUp() {
         driver = new ChromeDriver();
         driver.get(URL);

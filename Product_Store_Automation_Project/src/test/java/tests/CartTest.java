@@ -2,14 +2,19 @@ package tests;
 
 import base.Base;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Cart;
 import pages.ThankYouPage;
 
 public class CartTest extends Base {
+    Cart cart;
+    @BeforeClass
+    public void rr(){
+         cart = homePage.clickCartButton();
+    }
     @Test
     public void SuccessfullyPurchaseTest() {
-        Cart cart = homePage.clickCartButton();
         cart.clickPlaceOrder();
         cart.fillNameField("ghada");
         cart.fillCountryField("egy");
@@ -28,7 +33,6 @@ public class CartTest extends Base {
     @Test
     public void validateCityIsNullTest() throws InterruptedException {
         Thread.sleep(1000);
-        Cart cart = homePage.clickCartButton();
         cart.clickPlaceOrder();
         cart.fillNameField("ghada");
         cart.fillCountryField("egy");
@@ -45,7 +49,6 @@ public class CartTest extends Base {
 
     @Test
     public void validateMonthIsNullTest() throws InterruptedException {
-        Cart cart = homePage.clickCartButton();
         cart.clickPlaceOrder();
         cart.fillNameField("ghada");
         cart.fillCountryField("egy");
@@ -64,7 +67,6 @@ public class CartTest extends Base {
     @Test
     public void validateNameIsNotNullTest() throws InterruptedException {
         Thread.sleep(1000);
-        Cart cart = homePage.clickCartButton();
         cart.clickPlaceOrder();
         cart.fillCountryField("egy");
         cart.fillCityField("cairo");
@@ -82,7 +84,6 @@ public class CartTest extends Base {
     @Test
     public void validateCardIsNotNullTest() throws InterruptedException {
         Thread.sleep(1000);
-        Cart cart = homePage.clickCartButton();
         cart.clickPlaceOrder();
         cart.fillNameField("doo");
         cart.fillCountryField("egy");
@@ -99,7 +100,6 @@ public class CartTest extends Base {
 
     @Test
     public void validateCountryIsNullTest() {
-        Cart cart = homePage.clickCartButton();
         cart.clickPlaceOrder();
         cart.fillNameField("ghada");
         cart.fillCityField("cairo");
