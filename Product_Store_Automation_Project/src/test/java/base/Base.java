@@ -22,5 +22,8 @@ import pages.ProductDescription;
         driver.get(URL);
         homePage = new HomePage(driver);
     }
-
+    @AfterClass
+     public void exit(){
+        driver.quit();
+    }
 }

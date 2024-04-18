@@ -63,7 +63,9 @@ public ProductDescription chooseItem(By choosenProduct) {
         return new AboutUs(driver);
     }
     public SignUp clickSignUp(){
-        driver.findElement(signUpTxt).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100)); // Wait for up to 10 seconds
+        WebElement loginElement = wait.until(ExpectedConditions.elementToBeClickable(signUpTxt));
+        loginElement.click();
         return new SignUp(driver);
     }
     public void navigateToHomePage() {

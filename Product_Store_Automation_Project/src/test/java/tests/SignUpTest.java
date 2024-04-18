@@ -10,7 +10,7 @@ public class SignUpTest extends Base {
     @Test
     public void testSignUpSuccessfully() throws InterruptedException {
         SignUp signUpPage = homePage.clickSignUp();
-        int rand=(int)(Math.random()*50);
+        int rand=(int)(Math.random()*500);
         String username = "saharrhamdy"+rand;
         String password = "Sahar2";
         signUpPage.clearUserName();
@@ -21,14 +21,13 @@ public class SignUpTest extends Base {
         Thread.sleep(2000);
         Assert.assertEquals(signUpPage.checkAlertTxt(), "Sign up successful.");
         signUpPage.acceptAlert();
-        Thread.sleep(2000);
-        signUpPage.clickCloseButton();
+
     }
 
     @Test
     public void testUserNameAleardyExists() throws InterruptedException {
-
-        SignUp signUpPage = homePage.clickSignUp();
+        SignUp signUpPage= SignUp.refresh();
+         signUpPage = homePage.clickSignUp();
         signUpPage.clearUserName();
         signUpPage.clearPassword();
         String username = "saharrhamdy";
@@ -48,9 +47,7 @@ public class SignUpTest extends Base {
         SignUp signUpPage = homePage.clickSignUp();
         signUpPage.clearUserName();
         signUpPage.clearPassword();
-        String username = "";
         String password = "Sahar2";
-        signUpPage.fillUsernameSignUp(username);
         signUpPage.fillPasswordSignUp(password);
         signUpPage.clickSignUpButton();
         Thread.sleep(2000);
@@ -66,9 +63,7 @@ public class SignUpTest extends Base {
         signUpPage.clearUserName();
         signUpPage.clearPassword();
         String username = "sahar";
-        String password = "";
         signUpPage.fillUsernameSignUp(username);
-        signUpPage.fillPasswordSignUp(password);
         signUpPage.clickSignUpButton();
         Thread.sleep(2000);
         Assert.assertEquals(signUpPage.checkAlertTxt(), "Please fill out Username and Password.");

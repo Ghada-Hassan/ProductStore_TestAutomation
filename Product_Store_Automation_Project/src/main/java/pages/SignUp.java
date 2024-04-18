@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class SignUp {
-    WebDriver driver;
+    static WebDriver driver;
     By usernameSignUp = By.id("sign-username");
     By passwordSignUp = By.id("sign-password");
     By signUpBtn = By.xpath("//button[text()='Sign up']");
@@ -54,12 +54,16 @@ public class SignUp {
         driver.switchTo().alert().accept();
     }
     public void clearUserName(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(80));
         WebElement usernameElement = wait.until(ExpectedConditions.visibilityOfElementLocated(usernameSignUp));
         usernameElement.clear();    }
     public void clearPassword(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(80));
         WebElement passElement = wait.until(ExpectedConditions.visibilityOfElementLocated(passwordSignUp));
         passElement.clear();    }
+    public static SignUp refresh(){
+        driver.navigate().refresh();
+        return null;
+    }
 
 }
