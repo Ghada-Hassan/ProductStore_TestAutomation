@@ -17,6 +17,8 @@ public class Cart {
     By cardField = By.id("card");
     By monthField = By.id("month");
     By yearField = By.id("year");
+    By deleteButton =By.xpath("//a[text()='Delete']");
+    By addedProductsTable = By.xpath("//*[@id=\"page-wrapper\"]/div/div[1]/div");
     By purchaseBtn = By.xpath("//*[@id=\"orderModal\"]/div/div/div[3]/button[2]");
     By closeBtn = By.xpath("//*[@id=\"orderModal\"]/div/div/div[3]/button[1]");
 
@@ -68,7 +70,14 @@ public class Cart {
         driver.findElement(purchaseBtn).click();
         return new ThankYouPage(driver);
     }
-
+    public void clickDeleteProduct(){
+        driver.findElement(deleteButton).click();
+}
+    public String getProductName(){
+    WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
+    wait.until(ExpectedConditions.visibilityOfElementLocated(addedProductsTable));
+    String findProductName= driver.findElement(addedProductsTable).getText();
+        return findProductName;}
     public void clickCloseButton(){
         driver.findElement(closeBtn).click();
     }

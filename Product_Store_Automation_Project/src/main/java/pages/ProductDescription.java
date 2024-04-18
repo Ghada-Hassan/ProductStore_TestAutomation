@@ -20,7 +20,7 @@ public class ProductDescription {
     public ProductDescription(WebDriver driver){
         this.driver=driver;
     }
-    public String getPoductName (){
+    public String getProductName (){
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOfElementLocated(productName));
         String findProductName= driver.findElement(productName).getText();
@@ -44,13 +44,20 @@ public class ProductDescription {
         String findImage= driver.findElement(image).getAttribute("src");
         return findImage;
     }
-    public  void getAddToCart(){
-        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
+    public  void getAddToCart() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOfElementLocated(addToCartButton));
-        WebElement ClickAddToCartButton =driver.findElement(addToCartButton);
+        WebElement ClickAddToCartButton = driver.findElement(addToCartButton);
         ClickAddToCartButton.click();
+    }
+    public String checkAlertTxt(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-        alert.accept();
+        return driver.switchTo().alert().getText();
     }
-}
+
+    public void acceptAlert(){
+        driver.switchTo().alert().accept();
+    }
+   }

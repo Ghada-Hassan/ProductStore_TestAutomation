@@ -8,7 +8,7 @@ import pages.ThankYouPage;
 
 public class CartTest extends Base {
     @Test
-    public void SuccessfullyPurchaseTest(){
+    public void SuccessfullyPurchaseTest() {
         Cart cart = homePage.clickCartButton();
         cart.clickPlaceOrder();
         cart.fillNameField("ghada");
@@ -60,6 +60,7 @@ public class CartTest extends Base {
         cart.clickCloseButton();
 
     }
+
     @Test
     public void validateNameIsNotNullTest() throws InterruptedException {
         Thread.sleep(1000);
@@ -97,7 +98,7 @@ public class CartTest extends Base {
     }
 
     @Test
-    public void validateCountryIsNullTest(){
+    public void validateCountryIsNullTest() {
         Cart cart = homePage.clickCartButton();
         cart.clickPlaceOrder();
         cart.fillNameField("ghada");
