@@ -10,9 +10,7 @@ public class AboutUsTest extends Base {
     public void aboutUsTest() throws InterruptedException {
         AboutUs aboutUsPage = homePage.clickAboutUS();
         Thread.sleep(2000);
-        aboutUsPage.clickCloseBtn();
-
-        /*aboutUsPage.clickvideoImage();
+        aboutUsPage.clickvideoImage();
         Thread.sleep(1000);
         aboutUsPage.clickPlayButton();
         Thread.sleep(1000);
@@ -28,6 +26,8 @@ public class AboutUsTest extends Base {
         Thread.sleep(1000);
         aboutUsPage.clickPicInpicButton();
         Thread.sleep(1000);
-        aboutUsPage.clickPicInpicButton();*/
+        aboutUsPage.clickPicInpicButton();
+        Thread.sleep(1000);
+        aboutUsPage.clickCloseBtn();
     }
 }

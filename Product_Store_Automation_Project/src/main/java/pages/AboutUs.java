@@ -8,11 +8,11 @@ import java.time.Duration;
 
 public class AboutUs {
      WebDriver driver;
-     By playButton = By.className("vjs-play-control vjs-control vjs-button vjs-paused");
-     By pauseButton = By.className("vjs-play-control vjs-control vjs-button vjs-playing");
-     By muteVolume = By.className("vjs-mute-control vjs-control vjs-button vjs-vol-0");
-     By unMuteVolume = By.className("vjs-mute-control vjs-control vjs-button vjs-vol-3");
-     By fullscreenButton = By.xpath("//*[@id='example-video']/div[4]/button[4]");
+    By playButton = By.xpath("//*[@id='example-video']/div[4]/button[1]");
+    By pauseButton = By.xpath("//*[@id='example-video']/div[4]/button[1]");
+    By muteVolume = By.xpath("//*[@id='example-video']/div[4]/div[1]/button");
+    By unMuteVolume = By.xpath("//*[@id='example-video']/div[4]/div[1]/button");
+    By fullscreenButton = By.xpath("//*[@id='example-video']/div[4]/button[4]");
      By miniscreenButton =By.xpath("//*[@id='example-video']/div[4]/button[4]");
      By picInpicButton =By.xpath("//*[@id='example-video']/div[4]/button[3]");
      By videoIamge= By.xpath("//*[@id='example-video']/div[1]");
