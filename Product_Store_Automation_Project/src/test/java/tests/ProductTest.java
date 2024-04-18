@@ -9,7 +9,7 @@ import pages.ProductDescription;
 
 public class ProductTest extends Base  {
     @Test
-    public void checkAddToCartSuccessfully() {
+    public void testAddToCartSuccessfully() {
         ProductDescription productDescriptionPage;
         By choosenProduct= By.xpath("//a[text()='Samsung galaxy s6']");
         productDescriptionPage=homePage.chooseItem(choosenProduct);
@@ -21,14 +21,7 @@ public class ProductTest extends Base  {
         productDescriptionPage.acceptAlert();
         homePage.navigateToHomePage();
     }
-   /* @Test
-    public void testIncorrectProductDetails() {
-        By choosenProduct= By.xpath("//a[text()='Samsung galaxy s6']");
-        productDescriptionPage=homePage.chooseItem(choosenProduct);
-        Assert.assertNotEquals(productDescriptionPage.getProductName(), "Nokia lumia 1520", "Product name mismatch");
-        Assert.assertFalse(productDescriptionPage.getPrice().contains("$330"), "Price mismatch");
-        Assert.assertFalse(productDescriptionPage.getProductDescription().contains("Nokia lumia 1520"), "Product description mismatch");
-    }*/
+
    @Test
    public void checkDeleteProduct() throws InterruptedException {
        ProductDescription productDescriptionPage;

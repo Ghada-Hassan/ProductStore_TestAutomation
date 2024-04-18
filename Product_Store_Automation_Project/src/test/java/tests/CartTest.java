@@ -9,12 +9,9 @@ import pages.ThankYouPage;
 
 public class CartTest extends Base {
     Cart cart;
-    @BeforeClass
-    public void rr(){
-         cart = homePage.clickCartButton();
-    }
     @Test
     public void SuccessfullyPurchaseTest() {
+        cart = homePage.clickCartButton();
         cart.clickPlaceOrder();
         cart.fillNameField("ghada");
         cart.fillCountryField("egy");
@@ -27,11 +24,13 @@ public class CartTest extends Base {
         homePage = thankYouPage.clickOkBtn();
         Assert.assertTrue(homePage.checkProductStore().contains("PRODUCT STORE"));
         cart.clickCloseButton();
+        homePage.navigateToHomePage();
 
     }
 
     @Test
     public void validateCityIsNullTest() throws InterruptedException {
+        cart = homePage.clickCartButton();
         Thread.sleep(1000);
         cart.clickPlaceOrder();
         cart.fillNameField("ghada");
@@ -44,11 +43,13 @@ public class CartTest extends Base {
         homePage = thankYouPage.clickOkBtn();
         Assert.assertTrue(homePage.checkProductStore().contains("PRODUCT STORE"));
         cart.clickCloseButton();
+        homePage.navigateToHomePage();
 
     }
 
     @Test
     public void validateMonthIsNullTest() throws InterruptedException {
+        cart = homePage.clickCartButton();
         cart.clickPlaceOrder();
         cart.fillNameField("ghada");
         cart.fillCountryField("egy");
@@ -60,12 +61,13 @@ public class CartTest extends Base {
         Thread.sleep(1000);
         homePage = thankYouPage.clickOkBtn();
         Assert.assertTrue(homePage.checkProductStore().contains("PRODUCT STORE"));
-        cart.clickCloseButton();
+        homePage.navigateToHomePage();
 
     }
 
     @Test
     public void validateNameIsNotNullTest() throws InterruptedException {
+        cart = homePage.clickCartButton();
         Thread.sleep(1000);
         cart.clickPlaceOrder();
         cart.fillCountryField("egy");
@@ -78,11 +80,13 @@ public class CartTest extends Base {
         cart.acceptAlert();
         Thread.sleep(1000);
         cart.clickCloseButton();
+        homePage.navigateToHomePage();
 
     }
 
     @Test
     public void validateCardIsNotNullTest() throws InterruptedException {
+        cart = homePage.clickCartButton();
         Thread.sleep(1000);
         cart.clickPlaceOrder();
         cart.fillNameField("doo");
@@ -95,11 +99,13 @@ public class CartTest extends Base {
         cart.acceptAlert();
         Thread.sleep(1000);
         cart.clickCloseButton();
+        homePage.navigateToHomePage();
 
     }
 
     @Test
     public void validateCountryIsNullTest() {
+        cart = homePage.clickCartButton();
         cart.clickPlaceOrder();
         cart.fillNameField("ghada");
         cart.fillCityField("cairo");
@@ -110,6 +116,7 @@ public class CartTest extends Base {
         Assert.assertTrue(thankYouPage.checkThankYou().contains("Thank you for your purchase!"));
         homePage = thankYouPage.clickOkBtn();
         Assert.assertTrue(homePage.checkProductStore().contains("PRODUCT STORE"));
+        homePage.navigateToHomePage();
 
     }
 }

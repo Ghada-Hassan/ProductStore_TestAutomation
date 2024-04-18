@@ -13,6 +13,8 @@ public class SignUpTest extends Base {
         int rand=(int)(Math.random()*50);
         String username = "saharrhamdy"+rand;
         String password = "Sahar2";
+        signUpPage.clearUserName();
+        signUpPage.clearPassword();
         signUpPage.fillUsernameSignUp(username);
         signUpPage.fillPasswordSignUp(password);
         signUpPage.clickSignUpButton();

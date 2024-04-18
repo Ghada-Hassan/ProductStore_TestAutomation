@@ -68,6 +68,7 @@ public ProductDescription chooseItem(By choosenProduct) {
     }
     public void navigateToHomePage() {
         driver.get("https://www.demoblaze.com/");
+    }
     public void clickPhones(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement phoneCategoryElement = wait.until(ExpectedConditions.elementToBeClickable(phoneCat));
