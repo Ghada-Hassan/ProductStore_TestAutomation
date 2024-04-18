@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,7 +27,9 @@ public class Cart {
         this.driver=driver;
     }
     public void clickPlaceOrder(){
-        driver.findElement(placeOrderButton).click();
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(100)); // Wait for up to 10 seconds
+        WebElement placeOrderButtonElement = wait.until(ExpectedConditions.elementToBeClickable(placeOrderButton));
+        placeOrderButtonElement.click();
     }
     public void fillNameField(String name){
        WebElement element = driver.findElement(nameField);
@@ -83,10 +86,15 @@ public class Cart {
     }
 
     public String checkAlertTxt(){
-        return driver.switchTo().alert().getText();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        String alertText = alert.getText();
+        return alertText;
     }
 
     public void acceptAlert(){
+
         driver.switchTo().alert().accept();
     }
 }
